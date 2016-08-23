@@ -1,6 +1,23 @@
+"Check if autoload exists"
+if empty(glob("~/.config/nvim/autoload"))
+	execute '!mkdir -p ~/.config/nvim/autoload'
+endif
+
+"Copy this init.vim into place if one doesn't exist already"
+if empty(glob("~/.config/nvim/init.vim"))
+	execute "!cp $MYVIMRC ~/.config/nvim/init.vim"
+endif
+
+"Check if plugged exists"
+if empty(glob("~/.vim/plugged"))
+	execute '!mkdir -p ~/.vim/plugged'
+endif
+
 "vim-plug autoinstall"
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
 	execute '!curl -fLo ~/.config/nvim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+"Set flag for install"
+let g:installed="true"
 endif
 
 "Terminal Settings"
@@ -33,6 +50,10 @@ Plug 'mklabs/split-term.vim'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
+"Install plugins if we installed"
+if exists("g:installed")
+	:PlugInstall
+endif
 
 "Color Settings"
 
@@ -42,8 +63,6 @@ colorscheme solarized
 "FileType settings"
 
 filetype plugin indent on
-autocmd FileType jade set omnifunc=jadecomplete#CompleteJade
-"autocmd FileType pl6 set omnifunc=
 
 "Tern settings
 
