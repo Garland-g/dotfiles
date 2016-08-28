@@ -3,11 +3,6 @@ if empty(glob("~/.config/nvim/autoload"))
 	execute '!mkdir -p ~/.config/nvim/autoload'
 endif
 
-"Copy this init.vim into place if one doesn't exist already"
-if empty(glob("~/.config/nvim/init.vim"))
-	execute "!cp $MYVIMRC ~/.config/nvim/init.vim"
-endif
-
 "Check if plugged exists"
 if empty(glob("~/.vim/plugged"))
 	execute '!mkdir -p ~/.vim/plugged'
