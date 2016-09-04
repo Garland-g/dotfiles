@@ -37,12 +37,13 @@ Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'wookiehangover/jshint.vim'
 Plug 'neomake/neomake'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-sensible'
 Plug 'davidhalter/jedi', {'for': 'python'}
 Plug 'vim-perl/vim-perl', { 'for': ['perl', 'perl6'] }
 Plug 'mklabs/split-term.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'tomasr/molokai'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 "Install plugins if we installed"
@@ -51,9 +52,8 @@ if exists("g:installed")
 endif
 
 "Color Settings"
-
+colorscheme molokai
 set background=dark
-colorscheme solarized
 
 "FileType settings"
 
